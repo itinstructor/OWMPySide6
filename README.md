@@ -1,5 +1,8 @@
 # OpenWeatherMap Python PySide6 GUI Program
 OpenWeatherMap Python GUI Program with PySide6
+
+![Screenshot of program](./owm.png)
+
 ### Overview
 - Python PySide6 GUI program using requests, OpenWeatherMap API, OpenWeatherMap Air Pollution API, and Nominatim from geopy.
 - Includes current weather and AQI (Air Quality Index).

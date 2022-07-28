@@ -11,15 +11,12 @@
 import sys
 from PySide6 import QtCore
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QAction
-# from PySide6 import QtGui
+from PySide6.QtGui import QAction, QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QMenu
 # Import gui py file created by QT Designer
 from main_ui import Ui_MainWindow
 # Import controller class
 from owm_class import WeatherClass
-# Qt dark palette
-import dark_palette
 
 
 class OWM(QMainWindow, Ui_MainWindow):
@@ -45,6 +42,12 @@ class OWM(QMainWindow, Ui_MainWindow):
         # Remove sizing grip from status bar
         self.status_bar.setSizeGripEnabled(False)
         # Add widgets to status bar
+
+        # Set window title bar icon, shows in task bar
+        my_icon = QIcon()
+        my_icon.addFile("cloudy.png")
+        self.setWindowIcon(my_icon)
+
         self.status_bar.addPermanentWidget(self.progress_bar)
         # Set statusbar tips
         self.btn_get_weather.setStatusTip("Get current weather (Press Enter)")
@@ -131,14 +134,20 @@ def main():
     # Create application object
     owm = QApplication(sys.argv)
     # Set a QT style
-    owm.setStyle('Fusion')
-    # Set colors to darkPalette, from external py file
-    owm.setPalette(dark_palette.darkPalette)
+    # owm.setStyle('Fusion')
+    # Set style
+    File = open("Darkeum.qss","r")
+    with File:
+        qss = File.read()
+        owm.setStyleSheet(qss)
     # Create program object
     window = OWM()
 
     # Make program visible
     window.show()
+
+    # Set colors to darkPalette, from external py file
+#    owm.setPalette(dark_palette.darkPalette)
     # Execute the program, setup clean exit of program
     sys.exit(owm.exec())
 
