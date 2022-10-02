@@ -1,14 +1,14 @@
 # OpenWeatherMap Python PySide6 GUI Program
 OpenWeatherMap Python GUI Program with PySide6
 
-![Screenshot of program](./owm.png)
+![Screenshot of program](./owm_screenshot.png)
 
 ### Overview
 - Python PySide6 GUI program using requests, OpenWeatherMap API, OpenWeatherMap Air Pollution API, and Nominatim from geopy.
 - Includes current weather and AQI (Air Quality Index).
 - The ui was built (and a lot of time was saved) using QT Designer.
-- Air Quality Index is a separate API call from OpenWeatherMap Air Pollution API.
-- The lat and long retrieved from OpenWeatherMap is reverse geocoded into the name of the location using Nominatim from geopy.
+- Air Quality Index is a separate API call from the OpenWeatherMap Air Pollution API.
+- The lat and long retrieved from OpenWeatherMap is reverse geocoded from the name of the location using Nominatim from geopy.
     * The reverse geocoding from geopy confirms that we have the weather for the right city.
 - JSON sample response files used to build the program are in the json_response_files folder.
 - A batch file is included for nuitka building to a Windows exe (nuitka_gui.bat)
@@ -20,7 +20,7 @@ The hands-on guide to making apps with Python
 by Martin Fitzpatrick
 ### API Key
 - To run the program, go to openweathermap.org. Get a free API key.
-- Go to weather_utils.py. Put in your OpenWeatherMap API key.
+- Edit weather_utils.py. Put in your OpenWeatherMap API key.
 ### Changes
 - 08/22/2021: Initial commit
 ### License
