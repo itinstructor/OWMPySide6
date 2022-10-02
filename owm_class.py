@@ -1,9 +1,8 @@
 """
-    Name: weather_console_class.py
+    Name: owm_class.py
     Author: William A Loring
     Created: 07/04/21
-    Purpose: OOP console app
-    Get lat and lon from Openweather map current weather
+    Purpose: OWM class for OWM Qt
 """
 
 from PySide6 import QtGui
@@ -14,7 +13,7 @@ import weather_utils
 # import geocode_owm for reverse geocode
 import geocode_geopy
 # Request icon from url
-import urllib.request
+import urllib3
 
 
 class WeatherClass:
@@ -24,7 +23,7 @@ class WeatherClass:
             Add owm reference to access owm from this class
         """
         # Create blank dictionary for weather data
-        self.__weather_data = {}
+        self._weather_data = {}
         # Create owm object reference for access
         self.owm = owm
 
@@ -37,19 +36,19 @@ class WeatherClass:
             # Get the text in the lineEdit text box
             location = self.owm.lineEdit.text()
             # Get location input from user
-            self.__location = location
+            self._location = location
 
             # Build the openweathermap api url
-            url = weather_utils.URL + self.__location
+            url = weather_utils.URL + self._location
 
             # Get the weather information out as a weather object
             response = requests.get(url)
             # print(response.text)
 
             # If the status_code is 200, successful connection and data
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 # Load json response into __weather dictionary
-                self.__weather_data = response.json()
+                self._weather_data = response.json()
                 # For testing
                 # print(self.__weather)
                 # Let user know the connection was successful
@@ -83,17 +82,17 @@ class WeatherClass:
             from main self.__weather dictionary
         """
         # temp, feels_like, temp_min, temp_max, pressure, humidity
-        self.__main_dict = self.__weather_data.get("main")
+        self._main_dict = self._weather_data.get("main")
         # id, main, description, icon
-        self.__weather_dict = self.__weather_data.get("weather")[0]
+        self._weather_dict = self._weather_data.get("weather")[0]
         # Wind speed and direction
-        self.__wind_dict = self.__weather_data.get("wind")
+        self._wind_dict = self._weather_data.get("wind")
         # Cloud information
-        self.__clouds_dict = self.__weather_data.get("clouds")
+        self._clouds_dict = self._weather_data.get("clouds")
         # Sunrise and Sunset time
-        self.__sys_dict = self.__weather_data.get("sys")
+        self._sys_dict = self._weather_data.get("sys")
         # Latitude and Longitude
-        self.__coord_dict = self.__weather_data.get("coord")
+        self._coord_dict = self._weather_data.get("coord")
 
 #-------------------------- GET WEATHER ----------------------------#
     def get_weather(self):
@@ -101,41 +100,41 @@ class WeatherClass:
             Get individual weather items from dictionaries
         """
         # Get time of data calculation
-        self.time = weather_utils.convert_time(self.__weather_data.get("dt"))
+        self.time = weather_utils.convert_time(self._weather_data.get("dt"))
 
         # Get description of current weather. Ex: Clear Skies
-        self.description = self.__weather_dict.get("description").title()
+        self.description = self._weather_dict.get("description").title()
         # Get fahrenheit temperature
-        self.temperature = round(self.__main_dict.get("temp"), 1)
+        self.temperature = round(self._main_dict.get("temp"), 1)
         # Get feels like temperature
-        self.feels_like = round(self.__main_dict.get("feels_like"), 1)
+        self.feels_like = round(self._main_dict.get("feels_like"), 1)
         # Get humidity
-        self.humidity = self.__main_dict.get("humidity")
+        self.humidity = self._main_dict.get("humidity")
         # Get pascals and convert to inches of mercury
-        self.pressure = round(self.__main_dict.get('pressure') / 33.86, 2)
+        self.pressure = round(self._main_dict.get('pressure') / 33.86, 2)
 
         # Get wind speed and direction
-        self.wind_speed = round((self.__wind_dict.get("speed")), 1)
-        self.degrees = self.__wind_dict.get("deg")
+        self.wind_speed = round((self._wind_dict.get("speed")), 1)
+        self.degrees = self._wind_dict.get("deg")
         self.cardinal_direction = weather_utils.degrees_to_cardinal(
             self.degrees)
 
         # Get cloud cover percentage
-        self.clouds = self.__clouds_dict.get("all")
+        self.clouds = self._clouds_dict.get("all")
 
         # Get sunrise and sunset time from API in Unix UTC
-        sunrise_time = self.__sys_dict.get("sunrise")
-        sunset_time = self.__sys_dict.get("sunset")
+        sunrise_time = self._sys_dict.get("sunrise")
+        sunset_time = self._sys_dict.get("sunset")
         # Add shift in seconds from UTC
-        sunrise_time = sunrise_time + self.__weather_data.get("timezone")
-        sunset_time = sunset_time + self.__weather_data.get("timezone")
+        sunrise_time = sunrise_time + self._weather_data.get("timezone")
+        sunset_time = sunset_time + self._weather_data.get("timezone")
         # Convert from Unix UTC timestamp to Python time
         self.sunrise_time = weather_utils.convert_time(sunrise_time)
         self.sunset_time = weather_utils.convert_time(sunset_time)
 
         # Get latitude and longitude
-        self.latitude = self.__coord_dict.get("lat")
-        self.longitude = self.__coord_dict.get("lon")
+        self.latitude = self._coord_dict.get("lat")
+        self.longitude = self._coord_dict.get("lon")
 
         # Reverse gecode the address
         self.address = geocode_geopy.reverse_geocode(
@@ -149,17 +148,19 @@ class WeatherClass:
             Get OWM weather icon from url in weather dictionary
         """
         # Get url for weather icon
-        icon_id = self.__weather_dict.get("icon")
+        icon_id = self._weather_dict.get("icon")
         weather_icon_url = f'http://openweathermap.org/img/wn/{icon_id}.png'
 
         # Get the data from the weather icon url
-        data = urllib.request.urlopen(weather_icon_url).read()
+        # data = urllib.request.urlopen(weather_icon_url).read()
+        http = urllib3.PoolManager()
+        data = http.request("GET", weather_icon_url)
 
         # Create a QT Image object
         self.weather_icon_image = QtGui.QImage()
 
         # Load the url data into the image object
-        self.weather_icon_image.loadFromData(data)
+        self.weather_icon_image.loadFromData(data.data)
 
         self.get_air_quality()
 
@@ -228,7 +229,7 @@ class WeatherClass:
             # print(response.text)
 
             # If the status_code is 200, successful connection and data
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 # Load json response into dictionary
                 data = response.json()
                 # Air Quality Index from OWM

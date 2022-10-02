@@ -41,13 +41,12 @@ class OWM(QMainWindow, Ui_MainWindow):
 
         # Remove sizing grip from status bar
         self.status_bar.setSizeGripEnabled(False)
-        # Add widgets to status bar
 
         # Set window title bar icon, shows in task bar
         my_icon = QIcon()
         my_icon.addFile("cloudy.png")
         self.setWindowIcon(my_icon)
-
+        # Add progress bar to status bar
         self.status_bar.addPermanentWidget(self.progress_bar)
         # Set statusbar tips
         self.btn_get_weather.setStatusTip("Get current weather (Press Enter)")

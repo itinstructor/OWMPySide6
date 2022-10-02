@@ -3,15 +3,22 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.1.2
+## Created by: Qt User Interface Compiler version 6.3.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *  # type: ignore
-from PySide6.QtGui import *  # type: ignore
-from PySide6.QtWidgets import *  # type: ignore
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
+    QLayout, QLineEdit, QMainWindow, QProgressBar,
+    QPushButton, QSizePolicy, QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -346,7 +353,7 @@ class Ui_MainWindow(object):
         self.lbl_wind_arrow.setFrameShape(QFrame.NoFrame)
         self.btn_exit = QPushButton(self.centralwidget)
         self.btn_exit.setObjectName(u"btn_exit")
-        self.btn_exit.setGeometry(QRect(430, 10, 75, 24))
+        self.btn_exit.setGeometry(QRect(435, 10, 75, 24))
         MainWindow.setCentralWidget(self.centralwidget)
         self.status_bar = QStatusBar(MainWindow)
         self.status_bar.setObjectName(u"status_bar")
