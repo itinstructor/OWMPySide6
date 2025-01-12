@@ -5,25 +5,29 @@
     Purpose: Store OpenWeatherMap API key and other items
     for easy import into OpenWeatherMap based apps
 """
+
 import datetime
 import math
 
 
-#----------------------- OPENWEATHERMAP API KEY ---------------------------#
-API_KEY = 'YOUR API KEY HERE'
+# ----------------------- OPENWEATHERMAP API KEY ---------------------------#
+API_KEY = "91b87d5bd08301fa2e65452154faba07"
 # One Call Parameters
-PARAMETERS_WEATHER = {
-    "appid": API_KEY,
-    "units": "imperial"
-}
+PARAMETERS_WEATHER = {"appid": API_KEY, "units": "imperial"}
 
 
-#--------------------------------- URLS --------------------------------------#
-URL = "http://api.openweathermap.org/data/2.5/weather?appid=" + \
-    API_KEY + "&units=imperial&q="
+# --------------------------------- URLS ----------------------------------- #
+URL = (
+    "http://api.openweathermap.org/data/2.5/weather?appid="
+    + API_KEY
+    + "&units=imperial&q="
+)
 
-FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast?appid=" + \
-    API_KEY + "&units=imperial&q="
+FORECAST_URL = (
+    "http://api.openweathermap.org/data/2.5/forecast?appid="
+    + API_KEY
+    + "&units=imperial&q="
+)
 
 ONE_CALL_URL = "https://api.openweathermap.org/data/2.5/onecall"
 
@@ -34,7 +38,7 @@ AQI_ENDPOINT = "http://api.openweathermap.org/data/2.5/air_pollution?appid=" + A
 NWS_ENDPOINT = "https://api.weather.gov/"
 
 
-#--------------------------- AQI TO STRING -----------------------------------#
+# --------------------------- AQI TO STRING -----------------------------------#
 def aqi_to_string(aqi):
     aqi_string = "None"
     if aqi <= 50:
@@ -53,7 +57,8 @@ def aqi_to_string(aqi):
         aqi_string = "None"
     return aqi_string
 
-#--------------------------- UV INDEX STRING -----------------------------------#
+
+# --------------------------- UV INDEX STRING -----------------------------------#
 
 
 def uvi_to_string(uvi):
@@ -71,15 +76,15 @@ def uvi_to_string(uvi):
     return uvi_string
 
 
-#--------------------------- CONVERT TO CELSIUS TO FAHRENHEIT--------------------#
+# --------------------------- CONVERT TO CELSIUS TO FAHRENHEIT--------------------#
 def celsius_to_fahrenheit(celsius):
     return round((((celsius * 9) / 5) + 32), 1)
 
 
-#--------------------------- CONVERT TIME -----------------------------------#
+# --------------------------- CONVERT TIME -----------------------------------#
 def convert_day_time(unix_time):
     """
-        Convert GMT Unix timestamp to local day, month, year
+    Convert GMT Unix timestamp to local day, month, year
     """
     # Convert Unix timestamp to Python datetime
     local_time = datetime.datetime.fromtimestamp(unix_time)
@@ -92,10 +97,10 @@ def convert_day_time(unix_time):
     return local_time
 
 
-#--------------------------- CONVERT TIME -----------------------------------#
+# --------------------------- CONVERT TIME -----------------------------------#
 def convert_hourly_time(time):
     """
-        Convert GMT Unix time to local hourly time
+    Convert GMT Unix time to local hourly time
     """
     # Convert Unix timestamp to Python datetime
     time = datetime.datetime.fromtimestamp(time)
@@ -108,13 +113,13 @@ def convert_hourly_time(time):
     return time
 
 
-#----------------------------- CONVERT TIME --------------------------------#
+# ----------------------------- CONVERT TIME --------------------------------#
 def convert_time(time):
     """
-        Convert GMT Unix time to local time
+    Convert GMT Unix time to local time
     """
     # Convert Unix timestamp to local Python datetime
-    time = datetime.datetime.fromtimestamp(time)
+    time = datetime.datetime.utcfromtimestamp(time)
     # Format the date to hours, minutes, seconds, AM PM
     time = f"{time:%I:%M:%S %p}"
     # Strip out the leading 0's: 01 becomes 1
@@ -123,60 +128,38 @@ def convert_time(time):
     return time
 
 
-#--------------------- CONVERT DEGREES TO CARDINAL ----------------------------#
+# --------------------- CONVERT DEGREES TO CARDINAL ----------------------------#
 def degrees_to_cardinal(degrees):
-    """ Convert degrees to cardinal directions """
+    """Convert degrees to cardinal directions"""
 
     # Tuple of cardinal directions clockwise for 360 degrees
-    cardinal_directions = ("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-                           "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW")
+    cardinal_directions = (
+        "N",
+        "NNE",
+        "NE",
+        "ENE",
+        "E",
+        "ESE",
+        "SE",
+        "SSE",
+        "S",
+        "SSW",
+        "SW",
+        "WSW",
+        "W",
+        "WNW",
+        "NW",
+        "NNW",
+    )
 
     # Divide 360 degrees into 16 segments 0-15
     # 22.5 degrees per segment
     # Shift incoming degrees by 11.25 to match Cardinal to Degree
     # Round down to the nearest integer
-    cardinal_index = math.floor((degrees+11.25) / 22.5)
+    cardinal_index = math.floor((degrees + 11.25) / 22.5)
 
     # Take care of 348 to 360 returning 16, set to 0
     cardinal_index = cardinal_index % 16
 
     # Return the cardinal direction based on the tuple index
     return cardinal_directions[cardinal_index]
-
-
-#----------------------- PROGRAM BANNER -------------------------------------#
-WEATHER_BANNER = """
- _    _            _   _                
-| |  | |          | | | |               
-| |  | | ___  __ _| |_| |__   ___ _ __  
-| |/\| |/ _ \/ _` | __| '_ \ / _ \ '__| 
-\  /\  /  __/ (_| | |_| | | |  __/ | 
- \/  \/ \___|\__,_|\__|_| |_|\___|_| """
-
-
-#----------------------- ASCII DECORATED TITLE -----------------------------#
-def title(statement):
-    '''
-        Takes in a string argument
-        returns a string with ascii decorations
-    '''
-    # Get the length of the statement
-    text_length = len(statement)
-
-    # Create the title string
-    # Initialize the result string variable
-    result = ""
-    result = result + "+--" + "-" * text_length + "--+\n"
-    result = result + "|  " + statement + "  |\n"
-    result = result + "+--" + "-" * text_length + "--+"
-
-    # Return the contatenated title string
-    return result
-
-
-#-------------------------- GOODBYE ----------------------------#
-def goodbye():
-    """
-        Print goodbye to user
-    """
-    print(title("Good bye from Bill's Weather App!"))

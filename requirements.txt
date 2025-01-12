@@ -1,4 +1,0 @@
-Python 3.9
-pip install requests
-pip install PySide6
-pip install geopy

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.3.2
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -43,8 +43,8 @@ class Ui_MainWindow(object):
         self.frame_get_location = QFrame(self.centralwidget)
         self.frame_get_location.setObjectName(u"frame_get_location")
         self.frame_get_location.setGeometry(QRect(20, 50, 491, 80))
-        self.frame_get_location.setFrameShape(QFrame.Panel)
-        self.frame_get_location.setFrameShadow(QFrame.Plain)
+        self.frame_get_location.setFrameShape(QFrame.Shape.Panel)
+        self.frame_get_location.setFrameShadow(QFrame.Shadow.Plain)
         self.frame_get_location.setLineWidth(1)
         self.label = QLabel(self.frame_get_location)
         self.label.setObjectName(u"label")
@@ -58,16 +58,16 @@ class Ui_MainWindow(object):
         self.lbl_reverse_geocode.setWordWrap(False)
         self.btn_get_weather = QPushButton(self.frame_get_location)
         self.btn_get_weather.setObjectName(u"btn_get_weather")
-        self.btn_get_weather.setGeometry(QRect(395, 15, 75, 24))
+        self.btn_get_weather.setGeometry(QRect(395, 15, 80, 24))
         self.frame_weather = QFrame(self.centralwidget)
         self.frame_weather.setObjectName(u"frame_weather")
         self.frame_weather.setGeometry(QRect(20, 155, 216, 376))
-        self.frame_weather.setFrameShape(QFrame.Panel)
-        self.frame_weather.setFrameShadow(QFrame.Plain)
+        self.frame_weather.setFrameShape(QFrame.Shape.Panel)
+        self.frame_weather.setFrameShadow(QFrame.Shadow.Plain)
         self.frame_weather.setLineWidth(1)
         self.gridLayout2 = QGridLayout(self.frame_weather)
         self.gridLayout2.setObjectName(u"gridLayout2")
-        self.gridLayout2.setSizeConstraint(QLayout.SetNoConstraint)
+        self.gridLayout2.setSizeConstraint(QLayout.SizeConstraint.SetNoConstraint)
         self.gridLayout2.setHorizontalSpacing(10)
         self.gridLayout2.setVerticalSpacing(12)
         self.gridLayout2.setContentsMargins(15, 15, 15, 15)
@@ -77,13 +77,13 @@ class Ui_MainWindow(object):
         font1.setPointSize(14)
         font1.setBold(True)
         self.lbl_temperature.setFont(font1)
-        self.lbl_temperature.setFrameShape(QFrame.NoFrame)
+        self.lbl_temperature.setFrameShape(QFrame.Shape.NoFrame)
 
         self.gridLayout2.addWidget(self.lbl_temperature, 0, 1, 1, 1)
 
         self.label_3 = QLabel(self.frame_weather)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_3.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_3, 1, 0, 1, 1)
 
@@ -91,120 +91,120 @@ class Ui_MainWindow(object):
         self.lbl_feels_like.setObjectName(u"lbl_feels_like")
         self.lbl_feels_like.setAutoFillBackground(False)
         self.lbl_feels_like.setStyleSheet(u"")
-        self.lbl_feels_like.setFrameShape(QFrame.Box)
-        self.lbl_feels_like.setFrameShadow(QFrame.Raised)
+        self.lbl_feels_like.setFrameShape(QFrame.Shape.Box)
+        self.lbl_feels_like.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_feels_like, 1, 1, 1, 1)
 
         self.label_4 = QLabel(self.frame_weather)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_4, 2, 0, 1, 1)
 
         self.lbl_humidity = QLabel(self.frame_weather)
         self.lbl_humidity.setObjectName(u"lbl_humidity")
         self.lbl_humidity.setAutoFillBackground(False)
-        self.lbl_humidity.setFrameShape(QFrame.Box)
-        self.lbl_humidity.setFrameShadow(QFrame.Raised)
+        self.lbl_humidity.setFrameShape(QFrame.Shape.Box)
+        self.lbl_humidity.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_humidity, 2, 1, 1, 1)
 
         self.label_5 = QLabel(self.frame_weather)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_5.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_5, 3, 0, 1, 1)
 
         self.lbl_pressure = QLabel(self.frame_weather)
         self.lbl_pressure.setObjectName(u"lbl_pressure")
         self.lbl_pressure.setAutoFillBackground(False)
-        self.lbl_pressure.setFrameShape(QFrame.Box)
-        self.lbl_pressure.setFrameShadow(QFrame.Raised)
+        self.lbl_pressure.setFrameShape(QFrame.Shape.Box)
+        self.lbl_pressure.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_pressure, 3, 1, 1, 1)
 
         self.label_6 = QLabel(self.frame_weather)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_6.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_6, 4, 0, 1, 1)
 
         self.lbl_wind = QLabel(self.frame_weather)
         self.lbl_wind.setObjectName(u"lbl_wind")
         self.lbl_wind.setAutoFillBackground(False)
-        self.lbl_wind.setFrameShape(QFrame.Box)
-        self.lbl_wind.setFrameShadow(QFrame.Raised)
+        self.lbl_wind.setFrameShape(QFrame.Shape.Box)
+        self.lbl_wind.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_wind, 4, 1, 1, 1)
 
         self.label_9 = QLabel(self.frame_weather)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_9.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_9, 5, 0, 1, 1)
 
         self.lbl_cloud_cover = QLabel(self.frame_weather)
         self.lbl_cloud_cover.setObjectName(u"lbl_cloud_cover")
         self.lbl_cloud_cover.setAutoFillBackground(False)
-        self.lbl_cloud_cover.setFrameShape(QFrame.Box)
-        self.lbl_cloud_cover.setFrameShadow(QFrame.Raised)
+        self.lbl_cloud_cover.setFrameShape(QFrame.Shape.Box)
+        self.lbl_cloud_cover.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_cloud_cover, 5, 1, 1, 1)
 
         self.label_11 = QLabel(self.frame_weather)
         self.label_11.setObjectName(u"label_11")
-        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_11.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_11, 6, 0, 1, 1)
 
         self.lbl_sunrise = QLabel(self.frame_weather)
         self.lbl_sunrise.setObjectName(u"lbl_sunrise")
         self.lbl_sunrise.setAutoFillBackground(False)
-        self.lbl_sunrise.setFrameShape(QFrame.Box)
-        self.lbl_sunrise.setFrameShadow(QFrame.Raised)
+        self.lbl_sunrise.setFrameShape(QFrame.Shape.Box)
+        self.lbl_sunrise.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_sunrise, 6, 1, 1, 1)
 
         self.label_10 = QLabel(self.frame_weather)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_10, 7, 0, 1, 1)
 
         self.lbl_sunset = QLabel(self.frame_weather)
         self.lbl_sunset.setObjectName(u"lbl_sunset")
         self.lbl_sunset.setAutoFillBackground(False)
-        self.lbl_sunset.setFrameShape(QFrame.Box)
-        self.lbl_sunset.setFrameShadow(QFrame.Raised)
+        self.lbl_sunset.setFrameShape(QFrame.Shape.Box)
+        self.lbl_sunset.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_sunset, 7, 1, 1, 1)
 
         self.label_7 = QLabel(self.frame_weather)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_7.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_7, 8, 0, 1, 1)
 
         self.lbl_latitude = QLabel(self.frame_weather)
         self.lbl_latitude.setObjectName(u"lbl_latitude")
         self.lbl_latitude.setAutoFillBackground(False)
-        self.lbl_latitude.setFrameShape(QFrame.Box)
-        self.lbl_latitude.setFrameShadow(QFrame.Raised)
+        self.lbl_latitude.setFrameShape(QFrame.Shape.Box)
+        self.lbl_latitude.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_latitude, 8, 1, 1, 1)
 
         self.label_8 = QLabel(self.frame_weather)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_8.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout2.addWidget(self.label_8, 9, 0, 1, 1)
 
         self.lbl_longitude = QLabel(self.frame_weather)
         self.lbl_longitude.setObjectName(u"lbl_longitude")
         self.lbl_longitude.setAutoFillBackground(False)
-        self.lbl_longitude.setFrameShape(QFrame.Box)
-        self.lbl_longitude.setFrameShadow(QFrame.Raised)
+        self.lbl_longitude.setFrameShape(QFrame.Shape.Box)
+        self.lbl_longitude.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout2.addWidget(self.lbl_longitude, 9, 1, 1, 1)
 
@@ -212,18 +212,18 @@ class Ui_MainWindow(object):
         self.frame_aqi = QFrame(self.centralwidget)
         self.frame_aqi.setObjectName(u"frame_aqi")
         self.frame_aqi.setGeometry(QRect(250, 270, 266, 261))
-        self.frame_aqi.setFrameShape(QFrame.Panel)
-        self.frame_aqi.setFrameShadow(QFrame.Plain)
+        self.frame_aqi.setFrameShape(QFrame.Shape.Panel)
+        self.frame_aqi.setFrameShadow(QFrame.Shadow.Plain)
         self.frame_aqi.setLineWidth(1)
         self.gridLayout = QGridLayout(self.frame_aqi)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setSizeConstraint(QLayout.SetNoConstraint)
+        self.gridLayout.setSizeConstraint(QLayout.SizeConstraint.SetNoConstraint)
         self.gridLayout.setHorizontalSpacing(10)
         self.gridLayout.setVerticalSpacing(12)
         self.gridLayout.setContentsMargins(15, 15, 15, 15)
         self.label_12 = QLabel(self.frame_aqi)
         self.label_12.setObjectName(u"label_12")
-        self.label_12.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_12.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_12, 0, 0, 1, 1)
 
@@ -231,14 +231,14 @@ class Ui_MainWindow(object):
         self.lbl_aqi.setObjectName(u"lbl_aqi")
         self.lbl_aqi.setAutoFillBackground(False)
         self.lbl_aqi.setStyleSheet(u"")
-        self.lbl_aqi.setFrameShape(QFrame.Box)
-        self.lbl_aqi.setFrameShadow(QFrame.Raised)
+        self.lbl_aqi.setFrameShape(QFrame.Shape.Box)
+        self.lbl_aqi.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_aqi, 0, 1, 1, 1)
 
         self.label_13 = QLabel(self.frame_aqi)
         self.label_13.setObjectName(u"label_13")
-        self.label_13.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_13.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_13, 1, 0, 1, 1)
 
@@ -246,14 +246,14 @@ class Ui_MainWindow(object):
         self.lbl_ozone.setObjectName(u"lbl_ozone")
         self.lbl_ozone.setAutoFillBackground(False)
         self.lbl_ozone.setStyleSheet(u"")
-        self.lbl_ozone.setFrameShape(QFrame.Box)
-        self.lbl_ozone.setFrameShadow(QFrame.Raised)
+        self.lbl_ozone.setFrameShape(QFrame.Shape.Box)
+        self.lbl_ozone.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_ozone, 1, 1, 1, 1)
 
         self.label_15 = QLabel(self.frame_aqi)
         self.label_15.setObjectName(u"label_15")
-        self.label_15.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_15.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_15, 2, 0, 1, 1)
 
@@ -261,14 +261,14 @@ class Ui_MainWindow(object):
         self.lbl_pm25.setObjectName(u"lbl_pm25")
         self.lbl_pm25.setAutoFillBackground(False)
         self.lbl_pm25.setStyleSheet(u"")
-        self.lbl_pm25.setFrameShape(QFrame.Box)
-        self.lbl_pm25.setFrameShadow(QFrame.Raised)
+        self.lbl_pm25.setFrameShape(QFrame.Shape.Box)
+        self.lbl_pm25.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_pm25, 2, 1, 1, 1)
 
         self.label_18 = QLabel(self.frame_aqi)
         self.label_18.setObjectName(u"label_18")
-        self.label_18.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_18.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_18, 3, 0, 1, 1)
 
@@ -276,14 +276,14 @@ class Ui_MainWindow(object):
         self.lbl_pm10.setObjectName(u"lbl_pm10")
         self.lbl_pm10.setAutoFillBackground(False)
         self.lbl_pm10.setStyleSheet(u"")
-        self.lbl_pm10.setFrameShape(QFrame.Box)
-        self.lbl_pm10.setFrameShadow(QFrame.Raised)
+        self.lbl_pm10.setFrameShape(QFrame.Shape.Box)
+        self.lbl_pm10.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_pm10, 3, 1, 1, 1)
 
         self.label_14 = QLabel(self.frame_aqi)
         self.label_14.setObjectName(u"label_14")
-        self.label_14.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_14.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_14, 4, 0, 1, 1)
 
@@ -291,14 +291,14 @@ class Ui_MainWindow(object):
         self.lbl_carbon_monoxide.setObjectName(u"lbl_carbon_monoxide")
         self.lbl_carbon_monoxide.setAutoFillBackground(False)
         self.lbl_carbon_monoxide.setStyleSheet(u"")
-        self.lbl_carbon_monoxide.setFrameShape(QFrame.Box)
-        self.lbl_carbon_monoxide.setFrameShadow(QFrame.Raised)
+        self.lbl_carbon_monoxide.setFrameShape(QFrame.Shape.Box)
+        self.lbl_carbon_monoxide.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_carbon_monoxide, 4, 1, 1, 1)
 
         self.label_16 = QLabel(self.frame_aqi)
         self.label_16.setObjectName(u"label_16")
-        self.label_16.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_16.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_16, 5, 0, 1, 1)
 
@@ -306,14 +306,14 @@ class Ui_MainWindow(object):
         self.lbl_sulphur_dioxide.setObjectName(u"lbl_sulphur_dioxide")
         self.lbl_sulphur_dioxide.setAutoFillBackground(False)
         self.lbl_sulphur_dioxide.setStyleSheet(u"")
-        self.lbl_sulphur_dioxide.setFrameShape(QFrame.Box)
-        self.lbl_sulphur_dioxide.setFrameShadow(QFrame.Raised)
+        self.lbl_sulphur_dioxide.setFrameShape(QFrame.Shape.Box)
+        self.lbl_sulphur_dioxide.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_sulphur_dioxide, 5, 1, 1, 1)
 
         self.label_17 = QLabel(self.frame_aqi)
         self.label_17.setObjectName(u"label_17")
-        self.label_17.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_17.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout.addWidget(self.label_17, 6, 0, 1, 1)
 
@@ -321,8 +321,8 @@ class Ui_MainWindow(object):
         self.lbl_nitrogen_dioxide.setObjectName(u"lbl_nitrogen_dioxide")
         self.lbl_nitrogen_dioxide.setAutoFillBackground(False)
         self.lbl_nitrogen_dioxide.setStyleSheet(u"")
-        self.lbl_nitrogen_dioxide.setFrameShape(QFrame.Box)
-        self.lbl_nitrogen_dioxide.setFrameShadow(QFrame.Raised)
+        self.lbl_nitrogen_dioxide.setFrameShape(QFrame.Shape.Box)
+        self.lbl_nitrogen_dioxide.setFrameShadow(QFrame.Shadow.Raised)
 
         self.gridLayout.addWidget(self.lbl_nitrogen_dioxide, 6, 1, 1, 1)
 
@@ -333,15 +333,15 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(11)
         self.lbl_description.setFont(font2)
-        self.lbl_description.setAlignment(Qt.AlignCenter)
+        self.lbl_description.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.lbl_weather_icon = QLabel(self.centralwidget)
         self.lbl_weather_icon.setObjectName(u"lbl_weather_icon")
         self.lbl_weather_icon.setGeometry(QRect(405, 185, 50, 50))
-        self.lbl_weather_icon.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.lbl_weather_icon.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.progress_bar = QProgressBar(self.centralwidget)
         self.progress_bar.setObjectName(u"progress_bar")
         self.progress_bar.setGeometry(QRect(20, 580, 118, 16))
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.progress_bar.sizePolicy().hasHeightForWidth())
@@ -350,7 +350,7 @@ class Ui_MainWindow(object):
         self.lbl_wind_arrow = QLabel(self.centralwidget)
         self.lbl_wind_arrow.setObjectName(u"lbl_wind_arrow")
         self.lbl_wind_arrow.setGeometry(QRect(275, 170, 80, 80))
-        self.lbl_wind_arrow.setFrameShape(QFrame.NoFrame)
+        self.lbl_wind_arrow.setFrameShape(QFrame.Shape.NoFrame)
         self.btn_exit = QPushButton(self.centralwidget)
         self.btn_exit.setObjectName(u"btn_exit")
         self.btn_exit.setGeometry(QRect(435, 10, 75, 24))
